@@ -6,22 +6,22 @@ items:
     title: "Ajouter une dépense (montant, catégorie, date)"
     description: "Formulaire permettant à l'utilisateur de saisir une dépense avec son montant, sa catégorie et sa date."
     artefact_type: code
-    sprint: null
+    sprint: 1
     priority: must
-    complexity: null
+    complexity: 3
     traces:
       implements: []
       derives_from: [INT-001]
     acceptance_criteria: ""
-    status: open
+    status: planned
     requires_review: true
     delivered_at: null
     completed_at: null
     origin: plan
     origin_ref: INT-001
     git:
-      branch: null
-      branch_status: null
+      branch: gse/sprint-01/feat/add-expense
+      branch_status: planned
       worktree: null
       worktree_status: null
       last_commit: null
@@ -41,22 +41,22 @@ items:
     title: "Lister les dépenses avec filtres par mois et catégorie"
     description: "Page ou section affichant la liste des dépenses enregistrées, avec des filtres pour trier par mois et par catégorie."
     artefact_type: code
-    sprint: null
+    sprint: 1
     priority: must
-    complexity: null
+    complexity: 3
     traces:
       implements: []
       derives_from: [INT-001]
     acceptance_criteria: ""
-    status: open
+    status: planned
     requires_review: true
     delivered_at: null
     completed_at: null
     origin: plan
     origin_ref: INT-001
     git:
-      branch: null
-      branch_status: null
+      branch: gse/sprint-01/feat/list-expenses
+      branch_status: planned
       worktree: null
       worktree_status: null
       last_commit: null
@@ -76,22 +76,22 @@ items:
     title: "Définir des budgets mensuels par catégorie"
     description: "Interface permettant de fixer un montant maximum à dépenser par catégorie pour un mois donné."
     artefact_type: code
-    sprint: null
+    sprint: 1
     priority: must
-    complexity: null
+    complexity: 1
     traces:
       implements: []
       derives_from: [INT-001]
     acceptance_criteria: ""
-    status: open
+    status: planned
     requires_review: true
     delivered_at: null
     completed_at: null
     origin: plan
     origin_ref: INT-001
     git:
-      branch: null
-      branch_status: null
+      branch: gse/sprint-01/feat/monthly-budgets
+      branch_status: planned
       worktree: null
       worktree_status: null
       last_commit: null
@@ -111,22 +111,22 @@ items:
     title: "Afficher le budget restant avec indicateurs visuels"
     description: "Section affichant, pour chaque catégorie, le budget défini, les dépenses effectuées et le reste — avec des barres de progression et codes couleur."
     artefact_type: code
-    sprint: null
+    sprint: 1
     priority: must
-    complexity: null
+    complexity: 3
     traces:
       implements: []
       derives_from: [INT-001]
     acceptance_criteria: ""
-    status: open
+    status: planned
     requires_review: true
     delivered_at: null
     completed_at: null
     origin: plan
     origin_ref: INT-001
     git:
-      branch: null
-      branch_status: null
+      branch: gse/sprint-01/feat/budget-indicators
+      branch_status: planned
       worktree: null
       worktree_status: null
       last_commit: null

@@ -1,0 +1,64 @@
+# GSE-One Sprint Plan
+# Created by /gse:plan --strategic. Maintained by orchestrator throughout sprint.
+
+version: 1
+id: "PLN-001"
+sprint: 1
+mode: full
+status: active
+goal: "Avoir une première version utilisable de CalcApp avec les 4 fonctionnalités de base"
+
+tasks:
+  - id: TASK-001
+    order: 1
+    complexity: 3
+    branch: gse/sprint-01/feat/add-expense
+  - id: TASK-002
+    order: 2
+    complexity: 3
+    branch: gse/sprint-01/feat/list-expenses
+  - id: TASK-003
+    order: 3
+    complexity: 1
+    branch: gse/sprint-01/feat/monthly-budgets
+  - id: TASK-004
+    order: 4
+    complexity: 3
+    branch: gse/sprint-01/feat/budget-indicators
+
+budget:
+  total: 10
+  consumed: 0
+  remaining: 10
+
+workflow:
+  expected: [collect, assess, plan, reqs, design, preview, tests, produce, review, deliver]
+  completed:
+    - activity: collect
+      completed_at: "2026-04-22"
+      notes: "Inventaire interne — 7 fichiers, 0 code source"
+    - activity: assess
+      completed_at: "2026-04-22"
+      notes: "0/4 objectifs couverts — 5 écarts identifiés"
+    - activity: plan
+      completed_at: "2026-04-22"
+      notes: "4 tâches sélectionnées — budget 10/10"
+  active: reqs
+  pending: [design, preview, tests, produce, review, deliver]
+  skipped: []
+
+coherence:
+  last_evaluated: "2026-04-22"
+  scope_changes: []
+  alerts: []
+
+risks:
+  - description: "Stockage des données non tranché (OQ-001) — impacte la conception"
+    likelihood: medium
+    mitigation: "Sera résolu à l'étape DESIGN via OQ-001"
+  - description: "Budget à 100% — aucune marge si une tâche dépasse son estimation"
+    likelihood: low
+    mitigation: "Possibilité de reporter Étape 4 au cycle suivant si nécessaire"
+
+created: "2026-04-22"
+updated: "2026-04-22"
