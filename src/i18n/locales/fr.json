@@ -53,8 +53,11 @@
   "dashboard": {
     "title": "Tableau de bord",
     "totalExpenses": "Total des dépenses",
+    "spent": "Dépensé",
     "remaining": "Restant",
-    "noBudget": "Pas de budget défini"
+    "exceeded": "Dépassé de",
+    "noBudget": "Pas de budget défini",
+    "noBudgetForCategory": "Pas de budget défini"
   },
   "language": {
     "fr": "Français",

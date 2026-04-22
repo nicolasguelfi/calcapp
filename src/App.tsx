@@ -7,6 +7,7 @@ import { ExpenseForm } from './components/ExpenseForm'
 import { ExpenseList } from './components/ExpenseList'
 import { ExpenseFilters } from './components/ExpenseFilters'
 import { BudgetSettings } from './components/BudgetSettings'
+import { BudgetDashboard } from './components/BudgetDashboard'
 import { filterExpensesByMonth, filterExpensesByCategory } from './domain/filters'
 import { getCategories } from './services/storage'
 import './i18n'
@@ -49,12 +50,12 @@ function Header({
   )
 }
 
-function DashboardPage() {
+function DashboardPage({ selectedMonth }: { selectedMonth: string }) {
   const { t } = useTranslation()
   return (
     <div className="page">
       <h2>{t('dashboard.title')}</h2>
-      <p className="placeholder-text">{t('dashboard.noBudget')}</p>
+      <BudgetDashboard selectedMonth={selectedMonth} />
     </div>
   )
 }
@@ -142,7 +143,7 @@ export default function App() {
             <Header selectedMonth={selectedMonth} onMonthChange={setSelectedMonth} />
             <main className="app-main">
               <Routes>
-                <Route path="/" element={<DashboardPage />} />
+                <Route path="/" element={<DashboardPage selectedMonth={selectedMonth} />} />
                 <Route path="/add" element={<AddExpensePage />} />
                 <Route
                   path="/expenses"

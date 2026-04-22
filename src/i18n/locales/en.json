@@ -53,8 +53,11 @@
   "dashboard": {
     "title": "Dashboard",
     "totalExpenses": "Total expenses",
+    "spent": "Spent",
     "remaining": "Remaining",
-    "noBudget": "No budget set"
+    "exceeded": "Exceeded by",
+    "noBudget": "No budget set",
+    "noBudgetForCategory": "No budget set"
   },
   "language": {
     "fr": "Français",
