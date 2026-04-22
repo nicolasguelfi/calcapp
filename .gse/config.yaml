@@ -8,7 +8,7 @@ project:
 
 # --- Section 2: Lifecycle ---
 lifecycle:
-  mode: lightweight                    # filled by /gse:go after Complexity Assessment
+  mode: full                           # filled by /gse:go after Complexity Assessment
   stale_sprint_sessions: 3
   phases:
     LC02:

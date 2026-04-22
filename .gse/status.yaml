@@ -42,7 +42,7 @@ activity_history:
   - activity: "/gse:go"
     completed_at: "2026-04-22"
     sprint: 1
-    notes: "Mode Lightweight sélectionné — Intent Capture complété (INT-001) — prêt pour PLAN"
+    notes: "Mode Full sélectionné — Intent Capture complété (INT-001) — prêt pour LC01 (COLLECT)"
 
 sessions_without_progress: 0
 review_findings_open: 0
