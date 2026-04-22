@@ -10,7 +10,7 @@ items:
     priority: must
     complexity: 3
     traces:
-      implements: []
+      implements: [REQ-001, REQ-005]
       derives_from: [INT-001]
     acceptance_criteria: ""
     status: planned
@@ -45,7 +45,7 @@ items:
     priority: must
     complexity: 3
     traces:
-      implements: []
+      implements: [REQ-002]
       derives_from: [INT-001]
     acceptance_criteria: ""
     status: planned
@@ -80,7 +80,7 @@ items:
     priority: must
     complexity: 1
     traces:
-      implements: []
+      implements: [REQ-003]
       derives_from: [INT-001]
     acceptance_criteria: ""
     status: planned
@@ -115,7 +115,7 @@ items:
     priority: must
     complexity: 3
     traces:
-      implements: []
+      implements: [REQ-004]
       derives_from: [INT-001]
     acceptance_criteria: ""
     status: planned

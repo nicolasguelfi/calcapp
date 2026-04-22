@@ -59,8 +59,13 @@ qui permet à chaque utilisateur de :
   question: "Les catégories de dépenses sont-elles prédéfinies (ex : Alimentation, Transport, Loisirs…) ou l'utilisateur peut-il créer ses propres catégories ?"
   resolves_in: REQS
   impact: behavioral
-  status: pending
+  status: resolved
   raised_at: INT-001
+  resolved_at: "2026-04-22"
+  resolved_in: REQS
+  answer: "Les deux — une liste de catégories prédéfinies + possibilité pour l'utilisateur d'en ajouter."
+  answered_by: user
+  confidence: Verified
 
 - id: OQ-003
   question: "Quelles technologies utiliser pour construire l'interface (HTML/CSS/JavaScript simple, React, Vue.js…) ?"
@@ -73,5 +78,10 @@ qui permet à chaque utilisateur de :
   question: "L'application doit-elle fonctionner en plusieurs langues, ou uniquement en français ?"
   resolves_in: REQS
   impact: behavioral
-  status: pending
+  status: resolved
   raised_at: INT-001
+  resolved_at: "2026-04-22"
+  resolved_in: REQS
+  answer: "Multilingue — prévoir la traduction dès le départ."
+  answered_by: user
+  confidence: Verified
