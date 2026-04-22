@@ -1,0 +1,29 @@
+version: 1
+created: "2026-04-22"
+updated: "2026-04-22"
+user:
+  name: "Nicolas"
+  git_email: "12199146+nicolasguelfi@users.noreply.github.com"
+dimensions:
+  it_expertise: beginner
+  scientific_expertise: none
+  abstraction_capability: concrete-first
+  language:
+    chat: fr
+    artifacts: en
+    overrides: {}
+  preferred_verbosity: normal
+  domain_background: "Formation AI4SE — développement logiciel assisté par IA"
+  decision_involvement: supervised
+  project_domain: other
+  team_context: solo
+  learning_goals:
+    - "Les tests automatiques"
+    - "La gestion de versions (git)"
+    - "L'organisation du code (architecture)"
+    - "La méthode agile / les cycles de développement"
+  contextual_tips: true
+  emoji: true
+inferred:
+  team_context: true
+  domain_background: true

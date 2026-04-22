@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+__pycache__/
+.venv/
+venv/
+*.pyc
+
+# Build outputs
+dist/
+build/
+target/
+*.egg-info/
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# GSE-One
+.worktrees/
+.gse/checkpoints/
+.gse/decisions-auto.log
+.gse/local/
