@@ -5,7 +5,7 @@ version: 1
 id: "PLN-001"
 sprint: 1
 mode: full
-status: active
+status: completed
 goal: "Avoir une première version utilisable de CalcApp avec les 4 fonctionnalités de base"
 
 tasks:
@@ -64,7 +64,7 @@ workflow:
     - activity: fix
       completed_at: "2026-04-22"
       notes: "19/19 findings résolus — 65/65 tests passent (+18 nouveaux)"
-  active: deliver
+  active: null
   pending: []
   skipped: []
 
