@@ -16,7 +16,14 @@
     "submit": "Ajouter la dépense",
     "selectCategory": "Sélectionner une catégorie",
     "added": "Dépense ajoutée !",
-    "noExpenses": "Aucune dépense enregistrée"
+    "noExpenses": "Aucune dépense enregistrée",
+    "delete": "Supprimer",
+    "total": "Total"
+  },
+  "filter": {
+    "month": "Mois",
+    "category": "Catégorie",
+    "allCategories": "Toutes les catégories"
   },
   "validation": {
     "amountRequired": "Le montant est requis",

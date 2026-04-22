@@ -1,14 +1,23 @@
+import { useState } from 'react'
 import { HashRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { ExpenseProvider } from './context/ExpenseContext'
+import { ExpenseProvider, useExpenses } from './context/ExpenseContext'
 import { ExpenseForm } from './components/ExpenseForm'
+import { ExpenseList } from './components/ExpenseList'
+import { ExpenseFilters } from './components/ExpenseFilters'
+import { filterExpensesByMonth, filterExpensesByCategory } from './domain/filters'
+import { getCategories } from './services/storage'
 import './i18n'
 import './App.css'
 
-function Header() {
+function Header({
+  selectedMonth,
+  onMonthChange,
+}: {
+  selectedMonth: string
+  onMonthChange: (m: string) => void
+}) {
   const { t, i18n } = useTranslation()
-
-  const currentMonth = new Date().toISOString().slice(0, 7)
 
   return (
     <header className="app-header">
@@ -18,7 +27,8 @@ function Header() {
           <input
             type="month"
             className="month-selector"
-            defaultValue={currentMonth}
+            value={selectedMonth}
+            onChange={(e) => onMonthChange(e.target.value)}
             aria-label={t('month.selector')}
           />
           <select
@@ -55,12 +65,32 @@ function AddExpensePage() {
   )
 }
 
-function ExpensesPage() {
-  const { t } = useTranslation()
+function ExpensesPage({
+  selectedMonth,
+  onMonthChange,
+}: {
+  selectedMonth: string
+  onMonthChange: (m: string) => void
+}) {
+  const { expenses, deleteExpense } = useExpenses()
+  const [categoryFilter, setCategoryFilter] = useState('')
+  const categories = getCategories()
+
+  let filtered = filterExpensesByMonth(expenses, selectedMonth)
+  if (categoryFilter) {
+    filtered = filterExpensesByCategory(filtered, categoryFilter)
+  }
+
   return (
     <div className="page">
-      <h2>{t('nav.expenses')}</h2>
-      <p className="placeholder-text">{t('expense.noExpenses')}</p>
+      <ExpenseFilters
+        selectedMonth={selectedMonth}
+        onMonthChange={onMonthChange}
+        selectedCategory={categoryFilter}
+        onCategoryChange={setCategoryFilter}
+        categories={categories}
+      />
+      <ExpenseList expenses={filtered} onDelete={deleteExpense} categories={categories} />
     </div>
   )
 }
@@ -100,16 +130,28 @@ function BottomNav() {
 }
 
 export default function App() {
+  const [selectedMonth, setSelectedMonth] = useState(
+    () => new Date().toISOString().slice(0, 7),
+  )
+
   return (
     <HashRouter>
       <ExpenseProvider>
         <div className="app-container">
-          <Header />
+          <Header selectedMonth={selectedMonth} onMonthChange={setSelectedMonth} />
           <main className="app-main">
             <Routes>
               <Route path="/" element={<DashboardPage />} />
               <Route path="/add" element={<AddExpensePage />} />
-              <Route path="/expenses" element={<ExpensesPage />} />
+              <Route
+                path="/expenses"
+                element={
+                  <ExpensesPage
+                    selectedMonth={selectedMonth}
+                    onMonthChange={setSelectedMonth}
+                  />
+                }
+              />
               <Route path="/budgets" element={<BudgetsPage />} />
             </Routes>
           </main>

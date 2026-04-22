@@ -16,7 +16,14 @@
     "submit": "Add expense",
     "selectCategory": "Select a category",
     "added": "Expense added!",
-    "noExpenses": "No expenses recorded"
+    "noExpenses": "No expenses recorded",
+    "delete": "Delete",
+    "total": "Total"
+  },
+  "filter": {
+    "month": "Month",
+    "category": "Category",
+    "allCategories": "All categories"
   },
   "validation": {
     "amountRequired": "Amount is required",
