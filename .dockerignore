@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+.gse
+.cursor
+.env
+.env.*
+docs
+*.md
