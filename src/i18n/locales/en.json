@@ -1,0 +1,69 @@
+{
+  "app": {
+    "title": "CalcApp",
+    "subtitle": "Personal Budget"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "add": "Add",
+    "expenses": "Expenses",
+    "budgets": "Budgets"
+  },
+  "expense": {
+    "amount": "Amount (€)",
+    "category": "Category",
+    "date": "Date",
+    "submit": "Add expense",
+    "selectCategory": "Select a category",
+    "added": "Expense added!",
+    "noExpenses": "No expenses recorded",
+    "delete": "Delete",
+    "confirmDelete": "Are you sure you want to delete this expense?",
+    "total": "Total"
+  },
+  "filter": {
+    "month": "Month",
+    "category": "Category",
+    "allCategories": "All categories"
+  },
+  "validation": {
+    "amountRequired": "Amount is required",
+    "amountPositive": "Amount must be greater than 0",
+    "amountTooLarge": "Amount must not exceed 1,000,000",
+    "categoryRequired": "Category is required",
+    "categoryDuplicate": "This category already exists",
+    "dateRequired": "Date is required",
+    "dateInvalid": "Date is invalid"
+  },
+  "categories": {
+    "cat-food": "Food",
+    "cat-transport": "Transport",
+    "cat-housing": "Housing",
+    "cat-leisure": "Leisure",
+    "cat-health": "Health",
+    "cat-other": "Other"
+  },
+  "budget": {
+    "title": "Monthly Budgets",
+    "amount": "Amount (€)",
+    "save": "Save",
+    "saved": "Budget saved!",
+    "noBudget": "No budget set"
+  },
+  "month": {
+    "selector": "Month"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalExpenses": "Total expenses",
+    "spent": "Spent",
+    "remaining": "Remaining",
+    "exceeded": "Exceeded by",
+    "noBudget": "No budget set",
+    "noBudgetForCategory": "No budget set"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English"
+  }
+}

@@ -28,8 +28,8 @@ tasks:
 
 budget:
   total: 10
-  consumed: 0
-  remaining: 10
+  consumed: 10
+  remaining: 0
 
 workflow:
   expected: [collect, assess, plan, reqs, design, preview, tests, produce, review, deliver]
@@ -55,8 +55,17 @@ workflow:
     - activity: tests
       completed_at: "2026-04-22"
       notes: "28 TST définis (14 unit, 8 intégration, 5 acceptation, 1 policy) — Vitest"
-  active: produce
-  pending: [review, deliver]
+    - activity: produce
+      completed_at: "2026-04-22"
+      notes: "4 TASKs produits en TDD — 47/47 tests passent, build OK, app fonctionnelle"
+    - activity: review
+      completed_at: "2026-04-22"
+      notes: "19 findings (4 HIGH, 8 MEDIUM, 7 LOW) — code quality, security, requirements"
+    - activity: fix
+      completed_at: "2026-04-22"
+      notes: "19/19 findings résolus — 65/65 tests passent (+18 nouveaux)"
+  active: deliver
+  pending: []
   skipped: []
 
 coherence:
