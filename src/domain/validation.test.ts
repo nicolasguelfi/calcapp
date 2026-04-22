@@ -59,6 +59,29 @@ describe('validateExpenseInput', () => {
     expect(result.errors.category).toBeDefined()
     expect(result.errors.date).toBeDefined()
   })
+
+  it('rejects Infinity', () => {
+    const result = validateExpenseInput('Infinity', 'cat-food', '2025-01-15')
+    expect(result.valid).toBe(false)
+    expect(result.errors.amount).toBeDefined()
+  })
+
+  it('rejects -Infinity', () => {
+    const result = validateExpenseInput('-Infinity', 'cat-food', '2025-01-15')
+    expect(result.valid).toBe(false)
+    expect(result.errors.amount).toBeDefined()
+  })
+
+  it('rejects amounts exceeding 1,000,000', () => {
+    const result = validateExpenseInput('1000001', 'cat-food', '2025-01-15')
+    expect(result.valid).toBe(false)
+    expect(result.errors.amount).toBe('validation.amountTooLarge')
+  })
+
+  it('accepts amount of exactly 1,000,000', () => {
+    const result = validateExpenseInput('1000000', 'cat-food', '2025-01-15')
+    expect(result.valid).toBe(true)
+  })
 })
 
 describe('validateBudgetInput', () => {
@@ -84,5 +107,17 @@ describe('validateBudgetInput', () => {
     const result = validateBudgetInput('500')
     expect(result.valid).toBe(true)
     expect(Object.keys(result.errors)).toHaveLength(0)
+  })
+
+  it('rejects Infinity', () => {
+    const result = validateBudgetInput('Infinity')
+    expect(result.valid).toBe(false)
+    expect(result.errors.amount).toBeDefined()
+  })
+
+  it('rejects amounts exceeding 1,000,000', () => {
+    const result = validateBudgetInput('9999999')
+    expect(result.valid).toBe(false)
+    expect(result.errors.amount).toBe('validation.amountTooLarge')
   })
 })

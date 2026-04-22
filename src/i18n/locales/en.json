@@ -18,6 +18,7 @@
     "added": "Expense added!",
     "noExpenses": "No expenses recorded",
     "delete": "Delete",
+    "confirmDelete": "Are you sure you want to delete this expense?",
     "total": "Total"
   },
   "filter": {
@@ -28,7 +29,9 @@
   "validation": {
     "amountRequired": "Amount is required",
     "amountPositive": "Amount must be greater than 0",
+    "amountTooLarge": "Amount must not exceed 1,000,000",
     "categoryRequired": "Category is required",
+    "categoryDuplicate": "This category already exists",
     "dateRequired": "Date is required",
     "dateInvalid": "Date is invalid"
   },

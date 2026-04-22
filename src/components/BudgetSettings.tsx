@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useBudgets } from '../context/BudgetContext'
-import { getCategories } from '../services/storage'
+import { useCategories } from '../context/CategoryContext'
 import { validateBudgetInput } from '../domain/validation'
 import type { Category } from '../types'
 import styles from './BudgetSettings.module.css'
@@ -17,6 +17,10 @@ function BudgetRow({ category, currentAmount, onSave }: BudgetRowProps) {
   const [amount, setAmount] = useState(currentAmount?.toString() ?? '')
   const [error, setError] = useState('')
   const [saved, setSaved] = useState(false)
+
+  useEffect(() => {
+    setAmount(currentAmount?.toString() ?? '')
+  }, [currentAmount])
 
   function handleSave() {
     const validation = validateBudgetInput(amount)
@@ -59,7 +63,7 @@ function BudgetRow({ category, currentAmount, onSave }: BudgetRowProps) {
 export function BudgetSettings() {
   const { t } = useTranslation()
   const { budgets, setBudget } = useBudgets()
-  const categories = getCategories()
+  const { categories } = useCategories()
 
   return (
     <div className={styles.container}>

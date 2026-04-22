@@ -97,6 +97,17 @@ describe('addCategory / deleteCategory', () => {
     expect(cat.isDefault).toBe(false)
   })
 
+  it('rejects duplicate category name (case-insensitive)', () => {
+    addCategory('Vacances')
+    expect(() => addCategory('vacances')).toThrow(/already exists/i)
+    expect(() => addCategory('VACANCES')).toThrow(/already exists/i)
+  })
+
+  it('rejects duplicate of a default category name', () => {
+    getCategories()
+    expect(() => addCategory('Alimentation')).toThrow(/already exists/i)
+  })
+
   it('deletes a custom category', () => {
     const cat = addCategory('Vacances')
     deleteCategory(cat.id)

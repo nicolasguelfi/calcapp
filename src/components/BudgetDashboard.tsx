@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 import { useExpenses } from '../context/ExpenseContext'
 import { useBudgets } from '../context/BudgetContext'
-import { getCategories } from '../services/storage'
+import { useCategories } from '../context/CategoryContext'
 import { filterExpensesByMonth } from '../domain/filters'
 import { calculateRemaining } from '../domain/budget-calc'
 import { BudgetProgressBar } from './BudgetProgressBar'
@@ -15,7 +15,7 @@ export function BudgetDashboard({ selectedMonth }: BudgetDashboardProps) {
   const { t } = useTranslation()
   const { expenses } = useExpenses()
   const { budgets } = useBudgets()
-  const categories = getCategories()
+  const { categories } = useCategories()
 
   const monthExpenses = filterExpensesByMonth(expenses, selectedMonth)
 

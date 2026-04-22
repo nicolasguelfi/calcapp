@@ -1,6 +1,7 @@
 import type { ValidationResult } from '../types'
 
 const ISO_DATE_REGEX = /^\d{4}-\d{2}-\d{2}$/
+const MAX_AMOUNT = 1_000_000
 
 export function validateExpenseInput(
   amount: string,
@@ -13,8 +14,10 @@ export function validateExpenseInput(
     errors.amount = 'validation.amountRequired'
   } else {
     const num = Number(amount)
-    if (isNaN(num) || num <= 0) {
+    if (!Number.isFinite(num) || num <= 0) {
       errors.amount = 'validation.amountPositive'
+    } else if (num > MAX_AMOUNT) {
+      errors.amount = 'validation.amountTooLarge'
     }
   }
 
@@ -41,8 +44,10 @@ export function validateBudgetInput(amount: string): ValidationResult {
     errors.amount = 'validation.amountRequired'
   } else {
     const num = Number(amount)
-    if (isNaN(num) || num <= 0) {
+    if (!Number.isFinite(num) || num <= 0) {
       errors.amount = 'validation.amountPositive'
+    } else if (num > MAX_AMOUNT) {
+      errors.amount = 'validation.amountTooLarge'
     }
   }
 

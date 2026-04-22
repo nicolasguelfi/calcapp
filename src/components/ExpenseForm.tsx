@@ -1,13 +1,14 @@
 import { useState, type FormEvent } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useExpenses } from '../context/ExpenseContext'
-import { getCategories } from '../services/storage'
+import { useCategories } from '../context/CategoryContext'
 import { validateExpenseInput } from '../domain/validation'
 import styles from './ExpenseForm.module.css'
 
 export function ExpenseForm() {
   const { t } = useTranslation()
   const { addExpense } = useExpenses()
+  const { categories } = useCategories()
 
   const [amount, setAmount] = useState('')
   const [categoryId, setCategoryId] = useState('')
@@ -15,7 +16,7 @@ export function ExpenseForm() {
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [showSuccess, setShowSuccess] = useState(false)
 
-  const categories = getCategories()
+  const isFormEmpty = !amount.trim() || !categoryId.trim() || !date.trim()
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
@@ -40,6 +41,15 @@ export function ExpenseForm() {
     setTimeout(() => setShowSuccess(false), 2000)
   }
 
+  function clearError(field: string) {
+    setErrors((prev) => {
+      if (!prev[field]) return prev
+      const next = { ...prev }
+      delete next[field]
+      return next
+    })
+  }
+
   return (
     <form className={styles.form} onSubmit={handleSubmit} noValidate>
       {showSuccess && (
@@ -54,7 +64,10 @@ export function ExpenseForm() {
           step="0.01"
           min="0"
           value={amount}
-          onChange={(e) => setAmount(e.target.value)}
+          onChange={(e) => {
+            setAmount(e.target.value)
+            clearError('amount')
+          }}
           placeholder="0.00"
         />
         {errors.amount && (
@@ -67,7 +80,10 @@ export function ExpenseForm() {
         <select
           id="expense-category"
           value={categoryId}
-          onChange={(e) => setCategoryId(e.target.value)}
+          onChange={(e) => {
+            setCategoryId(e.target.value)
+            clearError('category')
+          }}
         >
           <option value="">{t('expense.selectCategory')}</option>
           {categories.map((cat) => (
@@ -87,14 +103,17 @@ export function ExpenseForm() {
           id="expense-date"
           type="date"
           value={date}
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(e) => {
+            setDate(e.target.value)
+            clearError('date')
+          }}
         />
         {errors.date && (
           <span className={styles.errorMessage}>{t(errors.date)}</span>
         )}
       </div>
 
-      <button type="submit" className={styles.submitButton}>
+      <button type="submit" className={styles.submitButton} disabled={isFormEmpty}>
         {t('expense.submit')}
       </button>
     </form>

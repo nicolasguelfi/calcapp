@@ -20,12 +20,22 @@ export function ExpenseList({ expenses, onDelete, categories }: ExpenseListProps
     return <p className="placeholder-text">{t('expense.noExpenses')}</p>
   }
 
-  const total = expenses.reduce((sum, e) => sum + e.amount, 0)
+  const sorted = [...expenses].sort(
+    (a, b) => b.date.localeCompare(a.date),
+  )
+
+  const total = sorted.reduce((sum, e) => sum + e.amount, 0)
+
+  function handleDelete(id: string) {
+    if (window.confirm(t('expense.confirmDelete'))) {
+      onDelete(id)
+    }
+  }
 
   return (
     <div className={styles.container}>
       <ul className={styles.list} role="list">
-        {expenses.map((expense) => (
+        {sorted.map((expense) => (
           <li key={expense.id} className={styles.item}>
             <div className={styles.itemInfo}>
               <span className={styles.category}>{categoryName(expense.categoryId)}</span>
@@ -35,10 +45,10 @@ export function ExpenseList({ expenses, onDelete, categories }: ExpenseListProps
               <span className={styles.amount}>{expense.amount.toFixed(2)} €</span>
               <button
                 className={styles.deleteButton}
-                onClick={() => onDelete(expense.id)}
+                onClick={() => handleDelete(expense.id)}
                 aria-label={t('expense.delete')}
               >
-                🗑
+                <span role="img" aria-hidden="true">🗑</span>
               </button>
             </div>
           </li>

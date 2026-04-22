@@ -3,13 +3,13 @@ import { HashRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ExpenseProvider, useExpenses } from './context/ExpenseContext'
 import { BudgetProvider } from './context/BudgetContext'
+import { CategoryProvider, useCategories } from './context/CategoryContext'
 import { ExpenseForm } from './components/ExpenseForm'
 import { ExpenseList } from './components/ExpenseList'
 import { ExpenseFilters } from './components/ExpenseFilters'
 import { BudgetSettings } from './components/BudgetSettings'
 import { BudgetDashboard } from './components/BudgetDashboard'
 import { filterExpensesByMonth, filterExpensesByCategory } from './domain/filters'
-import { getCategories } from './services/storage'
 import './i18n'
 import './App.css'
 
@@ -76,8 +76,8 @@ function ExpensesPage({
   onMonthChange: (m: string) => void
 }) {
   const { expenses, deleteExpense } = useExpenses()
+  const { categories } = useCategories()
   const [categoryFilter, setCategoryFilter] = useState('')
-  const categories = getCategories()
 
   let filtered = filterExpensesByMonth(expenses, selectedMonth)
   if (categoryFilter) {
@@ -111,19 +111,19 @@ function BottomNav() {
   return (
     <nav className="bottom-nav">
       <NavLink to="/" end className="nav-tab">
-        <span className="nav-icon">📊</span>
+        <span className="nav-icon" role="img" aria-label={t('nav.dashboard')}>📊</span>
         <span className="nav-label">{t('nav.dashboard')}</span>
       </NavLink>
       <NavLink to="/add" className="nav-tab">
-        <span className="nav-icon">➕</span>
+        <span className="nav-icon" role="img" aria-label={t('nav.add')}>➕</span>
         <span className="nav-label">{t('nav.add')}</span>
       </NavLink>
       <NavLink to="/expenses" className="nav-tab">
-        <span className="nav-icon">📋</span>
+        <span className="nav-icon" role="img" aria-label={t('nav.expenses')}>📋</span>
         <span className="nav-label">{t('nav.expenses')}</span>
       </NavLink>
       <NavLink to="/budgets" className="nav-tab">
-        <span className="nav-icon">💰</span>
+        <span className="nav-icon" role="img" aria-label={t('nav.budgets')}>💰</span>
         <span className="nav-label">{t('nav.budgets')}</span>
       </NavLink>
     </nav>
@@ -137,30 +137,32 @@ export default function App() {
 
   return (
     <HashRouter>
-      <ExpenseProvider>
-        <BudgetProvider month={selectedMonth}>
-          <div className="app-container">
-            <Header selectedMonth={selectedMonth} onMonthChange={setSelectedMonth} />
-            <main className="app-main">
-              <Routes>
-                <Route path="/" element={<DashboardPage selectedMonth={selectedMonth} />} />
-                <Route path="/add" element={<AddExpensePage />} />
-                <Route
-                  path="/expenses"
-                  element={
-                    <ExpensesPage
-                      selectedMonth={selectedMonth}
-                      onMonthChange={setSelectedMonth}
-                    />
-                  }
-                />
-                <Route path="/budgets" element={<BudgetsPage />} />
-              </Routes>
-            </main>
-            <BottomNav />
-          </div>
-        </BudgetProvider>
-      </ExpenseProvider>
+      <CategoryProvider>
+        <ExpenseProvider>
+          <BudgetProvider month={selectedMonth}>
+            <div className="app-container">
+              <Header selectedMonth={selectedMonth} onMonthChange={setSelectedMonth} />
+              <main className="app-main">
+                <Routes>
+                  <Route path="/" element={<DashboardPage selectedMonth={selectedMonth} />} />
+                  <Route path="/add" element={<AddExpensePage />} />
+                  <Route
+                    path="/expenses"
+                    element={
+                      <ExpensesPage
+                        selectedMonth={selectedMonth}
+                        onMonthChange={setSelectedMonth}
+                      />
+                    }
+                  />
+                  <Route path="/budgets" element={<BudgetsPage />} />
+                </Routes>
+              </main>
+              <BottomNav />
+            </div>
+          </BudgetProvider>
+        </ExpenseProvider>
+      </CategoryProvider>
     </HashRouter>
   )
 }
