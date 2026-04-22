@@ -52,8 +52,11 @@ workflow:
     - activity: preview
       completed_at: "2026-04-22"
       notes: "4 pages wireframe statique — approuvé sans modification"
-  active: tests
-  pending: [produce, review, deliver]
+    - activity: tests
+      completed_at: "2026-04-22"
+      notes: "28 TST définis (14 unit, 8 intégration, 5 acceptation, 1 policy) — Vitest"
+  active: produce
+  pending: [review, deliver]
   skipped: []
 
 coherence:
