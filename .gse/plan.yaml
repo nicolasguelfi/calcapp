@@ -49,8 +49,11 @@ workflow:
     - activity: design
       completed_at: "2026-04-22"
       notes: "8 composants (DES-001 à DES-008) — DEC-001 localStorage, DEC-002 Vite+React+TS"
-  active: preview
-  pending: [tests, produce, review, deliver]
+    - activity: preview
+      completed_at: "2026-04-22"
+      notes: "4 pages wireframe statique — approuvé sans modification"
+  active: tests
+  pending: [produce, review, deliver]
   skipped: []
 
 coherence:
