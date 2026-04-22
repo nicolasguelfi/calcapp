@@ -31,7 +31,7 @@ detected_gaps: []
 profile_drift_signals: {}
 workflow_observations: []
 
-last_activity: "/gse:go"
+last_activity: "/gse:assess"
 last_activity_timestamp: "2026-04-22T00:00:00"
 
 activity_history:
@@ -43,6 +43,14 @@ activity_history:
     completed_at: "2026-04-22"
     sprint: 1
     notes: "Mode Full sélectionné — Intent Capture complété (INT-001) — prêt pour LC01 (COLLECT)"
+  - activity: "/gse:collect"
+    completed_at: "2026-04-22"
+    sprint: 1
+    notes: "Inventaire interne — 7 fichiers, 0 code source, 4 tâches identifiées, 4 OQ"
+  - activity: "/gse:assess"
+    completed_at: "2026-04-22"
+    sprint: 1
+    notes: "0/4 objectifs couverts — 5 écarts identifiés (GAP-01 à GAP-05) — prêt pour PLAN"
 
 sessions_without_progress: 0
 review_findings_open: 0
