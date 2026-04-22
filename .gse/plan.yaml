@@ -58,7 +58,7 @@ workflow:
     - activity: produce
       completed_at: "2026-04-22"
       notes: "4 TASKs produits en TDD — 47/47 tests passent, build OK, app fonctionnelle"
-  active: review
+  active: fix
   pending: [deliver]
   skipped: []
 
