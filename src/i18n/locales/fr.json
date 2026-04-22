@@ -1,0 +1,55 @@
+{
+  "app": {
+    "title": "CalcApp",
+    "subtitle": "Budget Personnel"
+  },
+  "nav": {
+    "dashboard": "Tableau de bord",
+    "add": "Ajouter",
+    "expenses": "Dépenses",
+    "budgets": "Budgets"
+  },
+  "expense": {
+    "amount": "Montant (€)",
+    "category": "Catégorie",
+    "date": "Date",
+    "submit": "Ajouter la dépense",
+    "selectCategory": "Sélectionner une catégorie",
+    "added": "Dépense ajoutée !",
+    "noExpenses": "Aucune dépense enregistrée"
+  },
+  "validation": {
+    "amountRequired": "Le montant est requis",
+    "amountPositive": "Le montant doit être supérieur à 0",
+    "categoryRequired": "La catégorie est requise",
+    "dateRequired": "La date est requise",
+    "dateInvalid": "La date est invalide"
+  },
+  "categories": {
+    "cat-food": "Alimentation",
+    "cat-transport": "Transport",
+    "cat-housing": "Logement",
+    "cat-leisure": "Loisirs",
+    "cat-health": "Santé",
+    "cat-other": "Autre"
+  },
+  "budget": {
+    "title": "Budgets mensuels",
+    "amount": "Montant (€)",
+    "save": "Enregistrer",
+    "noBudget": "Aucun budget défini"
+  },
+  "month": {
+    "selector": "Mois"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "totalExpenses": "Total des dépenses",
+    "remaining": "Restant",
+    "noBudget": "Pas de budget défini"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English"
+  }
+}

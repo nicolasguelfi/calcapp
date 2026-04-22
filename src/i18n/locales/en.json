@@ -1,0 +1,55 @@
+{
+  "app": {
+    "title": "CalcApp",
+    "subtitle": "Personal Budget"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "add": "Add",
+    "expenses": "Expenses",
+    "budgets": "Budgets"
+  },
+  "expense": {
+    "amount": "Amount (€)",
+    "category": "Category",
+    "date": "Date",
+    "submit": "Add expense",
+    "selectCategory": "Select a category",
+    "added": "Expense added!",
+    "noExpenses": "No expenses recorded"
+  },
+  "validation": {
+    "amountRequired": "Amount is required",
+    "amountPositive": "Amount must be greater than 0",
+    "categoryRequired": "Category is required",
+    "dateRequired": "Date is required",
+    "dateInvalid": "Date is invalid"
+  },
+  "categories": {
+    "cat-food": "Food",
+    "cat-transport": "Transport",
+    "cat-housing": "Housing",
+    "cat-leisure": "Leisure",
+    "cat-health": "Health",
+    "cat-other": "Other"
+  },
+  "budget": {
+    "title": "Monthly Budgets",
+    "amount": "Amount (€)",
+    "save": "Save",
+    "noBudget": "No budget set"
+  },
+  "month": {
+    "selector": "Month"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "totalExpenses": "Total expenses",
+    "remaining": "Remaining",
+    "noBudget": "No budget set"
+  },
+  "language": {
+    "fr": "Français",
+    "en": "English"
+  }
+}
