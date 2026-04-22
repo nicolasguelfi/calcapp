@@ -43,8 +43,14 @@ workflow:
     - activity: plan
       completed_at: "2026-04-22"
       notes: "4 tâches sélectionnées — budget 10/10"
-  active: reqs
-  pending: [design, preview, tests, produce, review, deliver]
+    - activity: reqs
+      completed_at: "2026-04-22"
+      notes: "9 REQs approuvées (REQ-001 à REQ-009) — OQ-002 et OQ-004 résolues"
+    - activity: design
+      completed_at: "2026-04-22"
+      notes: "8 composants (DES-001 à DES-008) — DEC-001 localStorage, DEC-002 Vite+React+TS"
+  active: preview
+  pending: [tests, produce, review, deliver]
   skipped: []
 
 coherence:

@@ -51,9 +51,14 @@ qui permet à chaque utilisateur de :
   question: "Où sont stockées les données des utilisateurs ? Dans le navigateur (stockage local) ou sur un serveur distant ?"
   resolves_in: DESIGN
   impact: architectural
-  status: pending
+  status: resolved
   raised_at: INT-001
-  notes: "L'application est publique mais sans authentification. Si les données sont sur un serveur, comment distinguer les données de chaque utilisateur ?"
+  resolved_at: "2026-04-22"
+  resolved_in: DESIGN
+  answer: "Stockage local dans le navigateur (localStorage) — les données restent sur l'ordinateur de chaque utilisateur."
+  answered_by: user
+  confidence: Verified
+  traces: [DEC-001]
 
 - id: OQ-002
   question: "Les catégories de dépenses sont-elles prédéfinies (ex : Alimentation, Transport, Loisirs…) ou l'utilisateur peut-il créer ses propres catégories ?"
@@ -71,8 +76,14 @@ qui permet à chaque utilisateur de :
   question: "Quelles technologies utiliser pour construire l'interface (HTML/CSS/JavaScript simple, React, Vue.js…) ?"
   resolves_in: DESIGN
   impact: architectural
-  status: pending
+  status: resolved
   raised_at: INT-001
+  resolved_at: "2026-04-22"
+  resolved_in: DESIGN
+  answer: "Vite + React + TypeScript"
+  answered_by: user
+  confidence: Verified
+  traces: [DEC-002]
 
 - id: OQ-004
   question: "L'application doit-elle fonctionner en plusieurs langues, ou uniquement en français ?"
