@@ -44,6 +44,7 @@
     "title": "Budgets mensuels",
     "amount": "Montant (€)",
     "save": "Enregistrer",
+    "saved": "Budget enregistré !",
     "noBudget": "Aucun budget défini"
   },
   "month": {

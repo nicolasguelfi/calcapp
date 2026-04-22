@@ -110,6 +110,7 @@ describe('getBudgets / setBudget', () => {
     expect(getBudgets('2025-01')).toEqual([])
   })
 
+  // TST-008: setBudget saves a new budget
   it('sets and retrieves a budget', () => {
     const budget = setBudget('cat-food', '2025-01', 300)
     expect(budget.categoryId).toBe('cat-food')
@@ -121,6 +122,7 @@ describe('getBudgets / setBudget', () => {
     expect(budgets[0].amount).toBe(300)
   })
 
+  // TST-009: setBudget updates existing budget
   it('updates an existing budget for the same category and month', () => {
     setBudget('cat-food', '2025-01', 300)
     setBudget('cat-food', '2025-01', 500)

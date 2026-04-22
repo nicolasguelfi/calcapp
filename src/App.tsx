@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { HashRouter, Routes, Route, NavLink } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ExpenseProvider, useExpenses } from './context/ExpenseContext'
+import { BudgetProvider } from './context/BudgetContext'
 import { ExpenseForm } from './components/ExpenseForm'
 import { ExpenseList } from './components/ExpenseList'
 import { ExpenseFilters } from './components/ExpenseFilters'
+import { BudgetSettings } from './components/BudgetSettings'
 import { filterExpensesByMonth, filterExpensesByCategory } from './domain/filters'
 import { getCategories } from './services/storage'
 import './i18n'
@@ -96,11 +98,9 @@ function ExpensesPage({
 }
 
 function BudgetsPage() {
-  const { t } = useTranslation()
   return (
     <div className="page">
-      <h2>{t('budget.title')}</h2>
-      <p className="placeholder-text">{t('budget.noBudget')}</p>
+      <BudgetSettings />
     </div>
   )
 }
@@ -137,26 +137,28 @@ export default function App() {
   return (
     <HashRouter>
       <ExpenseProvider>
-        <div className="app-container">
-          <Header selectedMonth={selectedMonth} onMonthChange={setSelectedMonth} />
-          <main className="app-main">
-            <Routes>
-              <Route path="/" element={<DashboardPage />} />
-              <Route path="/add" element={<AddExpensePage />} />
-              <Route
-                path="/expenses"
-                element={
-                  <ExpensesPage
-                    selectedMonth={selectedMonth}
-                    onMonthChange={setSelectedMonth}
-                  />
-                }
-              />
-              <Route path="/budgets" element={<BudgetsPage />} />
-            </Routes>
-          </main>
-          <BottomNav />
-        </div>
+        <BudgetProvider month={selectedMonth}>
+          <div className="app-container">
+            <Header selectedMonth={selectedMonth} onMonthChange={setSelectedMonth} />
+            <main className="app-main">
+              <Routes>
+                <Route path="/" element={<DashboardPage />} />
+                <Route path="/add" element={<AddExpensePage />} />
+                <Route
+                  path="/expenses"
+                  element={
+                    <ExpensesPage
+                      selectedMonth={selectedMonth}
+                      onMonthChange={setSelectedMonth}
+                    />
+                  }
+                />
+                <Route path="/budgets" element={<BudgetsPage />} />
+              </Routes>
+            </main>
+            <BottomNav />
+          </div>
+        </BudgetProvider>
       </ExpenseProvider>
     </HashRouter>
   )
