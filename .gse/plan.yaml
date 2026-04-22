@@ -58,8 +58,14 @@ workflow:
     - activity: produce
       completed_at: "2026-04-22"
       notes: "4 TASKs produits en TDD — 47/47 tests passent, build OK, app fonctionnelle"
-  active: fix
-  pending: [deliver]
+    - activity: review
+      completed_at: "2026-04-22"
+      notes: "19 findings (4 HIGH, 8 MEDIUM, 7 LOW) — code quality, security, requirements"
+    - activity: fix
+      completed_at: "2026-04-22"
+      notes: "19/19 findings résolus — 65/65 tests passent (+18 nouveaux)"
+  active: deliver
+  pending: []
   skipped: []
 
 coherence:
