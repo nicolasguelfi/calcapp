@@ -5,8 +5,8 @@ gse_version: "0.56.0"
 current_sprint: 1
 current_phase: LC01
 
-session_paused: false
-pause_checkpoint: ""
+session_paused: true
+pause_checkpoint: "checkpoint-2026-04-22-1605.yaml"
 
 health:
   score: 0.0
@@ -31,8 +31,8 @@ detected_gaps: []
 profile_drift_signals: {}
 workflow_observations: []
 
-last_activity: "/gse:assess"
-last_activity_timestamp: "2026-04-22T00:00:00"
+last_activity: "/gse:pause"
+last_activity_timestamp: "2026-04-22T16:05:00"
 
 activity_history:
   - activity: "/gse:hug"
